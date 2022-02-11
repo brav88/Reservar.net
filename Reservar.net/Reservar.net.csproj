@@ -70,6 +70,7 @@
     <Content Include="Assets\images\HIS.jfif" />
     <Content Include="Assets\images\HPR.jfif" />
     <Content Include="Assets\images\PHR.jfif" />
+    <Content Include="SQLScripts\Insert-Destinos.sql" />
     <Content Include="Vistas\Destinos.aspx" />
     <Content Include="Vistas\Reservar.aspx" />
     <Content Include="Web.config" />

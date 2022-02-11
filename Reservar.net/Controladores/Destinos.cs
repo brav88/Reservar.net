@@ -37,21 +37,11 @@ namespace Reservar.net.Controladores
                 Descripcion = "Encuentra lo Que Necesitas en Reservar.net, la Web de Viajes Más Grande Del Mundo. Fiesta Resort All Inclusive Central Pacific.",
                 Foto = "/Assets/images/PHR.jpg",
                 Precio = 450
-            };
-
-            Destino destino4 = new Destino()
-            {
-                Codigo = 4,
-                Nombre = "Puntarenas Hilton Resort",
-                Descripcion = "Encuentra lo Que Necesitas en Reservar.net, la Web de Viajes Más Grande Del Mundo. Fiesta Resort All Inclusive Central Pacific.",
-                Foto = "/Assets/images/PHR.jpg",
-                Precio = 450
-            };
+            };            
 
             destinos.Add(destino1);
             destinos.Add(destino2);
-            destinos.Add(destino3);
-            destinos.Add(destino4);
+            destinos.Add(destino3);            
 
             return destinos;
         }
@@ -60,7 +50,15 @@ namespace Reservar.net.Controladores
         {            
             List<Destino> destinos = ObtenerDestinos();
 
-            foreach (Destino destino in destinos)
+            foreach(Destino destino in destinos.Where(d => d.Codigo.Equals(codigo)))
+            {
+                destinos.Clear();
+                destinos.Add(destino);
+
+                return destinos;
+            }
+
+            /*foreach (Destino destino in destinos)
             {
                 if (destino.Codigo == codigo)
                 {
@@ -69,7 +67,7 @@ namespace Reservar.net.Controladores
 
                     return destinos;
                 }
-            }
+            }*/
 
             return null;
         }
