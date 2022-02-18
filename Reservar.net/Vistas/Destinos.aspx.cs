@@ -12,9 +12,9 @@ namespace Reservar.net.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Controlador.Destinos destinos = new Controlador.Destinos();
+            Controlador.Destinos controladorDestinos = new Controlador.Destinos();
 
-            repDestinos.DataSource = destinos.ObtenerDestinos();
+            repDestinos.DataSource = controladorDestinos.ObtenerDestinos();
             repDestinos.DataBind();
         }
     }

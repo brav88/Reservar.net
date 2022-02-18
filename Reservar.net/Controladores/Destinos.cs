@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using Reservar.net.Modelos;
@@ -10,40 +11,25 @@ namespace Reservar.net.Controladores
     {
         public List<Destino> ObtenerDestinos()
         {
-            List<Destino> destinos = new List<Destino>();
+            List<Destino> listaDestinos = new List<Destino>();
+                      
+            DataTable dt = Database.fillDTStoreProcedure("spObtenerDestinos", null);
 
-            Destino destino1 = new Destino()
+            foreach(DataRow dr in dt.Rows)
             {
-                Codigo = 1,
-                Nombre = "Hotel Papagayo Resort",
-                Descripcion = "Disfruta de tus vacaciones con todo incluido en Costa Rica en el fabuloso hotel sólo para adultos Occidental Papagayo - Adults only. ¡Reserva ahora!",
-                Foto = "/Assets/images/HPR.jpg",
-                Precio = 250
-            };
+                Destino destino = new Destino()
+                {
+                    Codigo = Convert.ToInt16(dr["codigo"]),
+                    Nombre = dr["nombre"].ToString(),
+                    Descripcion = dr["descripcion"].ToString(),
+                    Foto = dr["foto"].ToString(),
+                    Precio = Convert.ToDouble(dr["precio"])
+                };
 
-            Destino destino2 = new Destino()
-            {
-                Codigo = 2,
-                Nombre = "Holiday Inn San José",
-                Descripcion = "Sitio oficial de Holiday Inn San Jose-Aurola. Opiniones de clientes y reservas con nuestra garantía de mejor precio. Alojamiento y comida gratuitos para ...",
-                Foto = "/Assets/images/HIS.jpg",
-                Precio = 350
-            };
+                listaDestinos.Add(destino);
+            }
 
-            Destino destino3 = new Destino()
-            {
-                Codigo = 3,
-                Nombre = "Puntarenas Hilton Resort",
-                Descripcion = "Encuentra lo Que Necesitas en Reservar.net, la Web de Viajes Más Grande Del Mundo. Fiesta Resort All Inclusive Central Pacific.",
-                Foto = "/Assets/images/PHR.jpg",
-                Precio = 450
-            };            
-
-            destinos.Add(destino1);
-            destinos.Add(destino2);
-            destinos.Add(destino3);            
-
-            return destinos;
+            return listaDestinos;           
         }
 
         public List<Destino> ObtenerDestino(int codigo)
@@ -56,18 +42,7 @@ namespace Reservar.net.Controladores
                 destinos.Add(destino);
 
                 return destinos;
-            }
-
-            /*foreach (Destino destino in destinos)
-            {
-                if (destino.Codigo == codigo)
-                {
-                    destinos.Clear();
-                    destinos.Add(destino);
-
-                    return destinos;
-                }
-            }*/
+            }           
 
             return null;
         }
