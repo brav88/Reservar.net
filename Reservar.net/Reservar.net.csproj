@@ -113,6 +113,7 @@
     <Content Include="js\modules\wow.min.js" />
     <Content Include="js\popper.js" />
     <Content Include="js\popper.min.js" />
+    <Content Include="SQLScripts\Create-Destinos.sql" />
     <Content Include="SQLScripts\Insert-Destinos.sql" />
     <Content Include="SQLScripts\spObtenerDestinos.sql" />
     <Content Include="Vistas\Destinos.aspx" />
