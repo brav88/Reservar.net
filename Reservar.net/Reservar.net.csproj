@@ -122,8 +122,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\Destinos.cs" />
+    <Compile Include="Controladores\Usuarios.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Modelos\Destino.cs" />
+    <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vistas\Destinos.aspx.cs">
       <DependentUpon>Destinos.aspx</DependentUpon>

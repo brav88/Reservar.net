@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reservar.net.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,5 +18,32 @@ namespace Reservar.net.Vistas
             repDestinos.DataSource = controladorDestinos.ObtenerDestinos();
             repDestinos.DataBind();
         }
+
+        protected void Login_Click(object sender, EventArgs e)
+        {
+            Controlador.Usuarios controladorUsuarios = new Controlador.Usuarios();
+
+            Usuario usuario = new Usuario()
+            {
+                Email = txtEmail.Value,
+                Password = txtPassword.Value
+            };
+
+            if (controladorUsuarios.Login(usuario))
+            {
+                //Login valido
+                cardLogin.Attributes.Add("hidden", "hidden");
+                cardUser.Attributes.Remove("hidden");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showMessage('Login realizado con exito')", true);
+            }
+            else
+            {
+                //login invalido
+                txtEmail.Attributes.Add("class", "form-control is-invalid");
+                txtPassword.Attributes.Add("class", "form-control is-invalid");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showMessage('Usuario no registrado en el sistema')", true);
+            }
+        }
+
     }
 }

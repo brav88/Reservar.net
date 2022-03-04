@@ -19,6 +19,8 @@ namespace Reservar.net.Vistas
 
             List<Modelo.Destino> lista = destinos.ObtenerDestino(Codigo);
 
+            lblMontoNoche.InnerText = lista[0].Precio.ToString();
+
             repDestinos.DataSource = lista;
             repDestinos.DataBind();          
         }

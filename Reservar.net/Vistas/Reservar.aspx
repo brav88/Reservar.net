@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet"
         id="theme_link"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/lumen/bootstrap.min.css" />    
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.2/lumen/bootstrap.min.css" />    
     <link href="../css/mdb.min.css" rel="stylesheet" />
     <link href="../css/navbar-fixed-left.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/navbar-fixed-left.min.css" />
@@ -48,7 +48,7 @@
                 </ul>
             </div>
         </nav>
-        <div class="container-fluid ml-3" style="margin-top: 10%">
+        <div class="container-fluid ml-3" style="margin-top: 1%">
             <div class="row">
                 <asp:Repeater ID="repDestinos" runat="server">
                     <ItemTemplate>
@@ -57,7 +57,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("Nombre") %></h5>
                                 <p class="card-text"><%# Eval("Descripcion") %></p>
-                                <strong class="card-text">$<%# Eval("Precio") %> / p</strong>
+                                <strong class="card-text">₡<%# Eval("Precio") %> / p</strong>
                                 <a style="float: right" href="Destinos.aspx" class="btn btn-primary">Regresar</a>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h5 class="card-title"><strong>₡20,414 </strong>
+                                <h5 class="card-title"><strong>₡<label id="lblMontoNoche" runat="server"></label></strong>
                                     <label style="font-size: small">/ noche</label></h5>
                             </div>
                             <div class="col">

@@ -7,7 +7,7 @@ using System.Web;
 
 public static class Database
 {
-    const string servidor = "DESKTOP-FCN7H8J";
+    const string servidor = @"LAP-BSANDI\MSSQLSERVER15";
     const string baseDatos = "Reservar.net";
     const string strConexion = "Data Source=" + servidor + ";Initial Catalog=" + baseDatos + ";Integrated Security=True";
 
