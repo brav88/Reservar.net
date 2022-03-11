@@ -15,6 +15,56 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/app.js"></script>
+    <script type="text/javascript">
+
+        function CalcularMontoHospedaje() {
+
+            const lblMontoHospedaje = document.querySelector("#lblMontoHospedaje");
+
+            var montoNocheDetalle = lblMontoNocheDetalle.innerText;
+            var rangoDias = lblCantidadNoches.innerText;
+            var montoHospedaje = parseInt(montoNocheDetalle * rangoDias)
+
+            lblMontoHospedaje.innerText = montoHospedaje;
+            lblMontoHospedajeFinal.innerText = (montoHospedaje + 9422 + 15740);
+        }
+
+        function CalcularMontoNocheDetalle() {
+            const lblMontoNocheDetalle = document.querySelector("#lblMontoNocheDetalle");
+            const lblMontoNoche = document.querySelector("#lblMontoNoche");
+            const intAdultos = document.querySelector("#intAdultos");
+            const montoNoche = parseInt(lblMontoNoche.innerText);
+
+            if (intAdultos.value > 2) {                
+                var impuesto = (montoNoche * 0.13);
+                lblMontoNocheDetalle.innerText = montoNoche + impuesto;
+            }
+            else {
+                lblMontoNocheDetalle.innerText = montoNoche;
+            }
+
+            CalcularMontoHospedaje();
+        }
+
+        function CalcularCantidadNoches()
+        {
+            const lblCantidadNoches = document.querySelector("#lblCantidadNoches");
+            const dtLlegada = new Date(document.querySelector("#dtLlegada").value);
+            const dtSalida = new Date(document.querySelector("#dtSalida").value);            
+            var rangoDias = Math.ceil((dtSalida.getTime() - dtLlegada.getTime()) / (86400000));
+
+            if (dtSalida > dtLlegada) {
+                if (rangoDias > 0) {
+                    lblCantidadNoches.innerText = rangoDias;
+                }
+            }
+            else {
+                alert('Fecha llegada no puede ser mas alta que la fecha salida.');                                
+            }
+
+            CalcularMontoHospedaje();
+        }
+    </script>
     <title></title>
 </head>
 <body>
@@ -79,23 +129,23 @@
                         <div class="row mb-2">
                             <div class="col">
                                 Llegada<br />
-                                <input runat="server" type="date" class="form-control" id="llegada" />
+                                <input runat="server" type="date" class="form-control" id="dtLlegada" onchange="CalcularCantidadNoches()" />
                             </div>
                             <div class="col">
                                 Salida<br />
-                                <input runat="server" type="date" class="form-control" id="salida" />
+                                <input runat="server" type="date" class="form-control" id="dtSalida" onchange="CalcularCantidadNoches()" />
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col">
                                 Adultos
                                 <br />
-                                <input runat="server" type="number" class="form-control" id="adultos" min="1" max="5" />
+                                <input runat="server" type="number" class="form-control" id="intAdultos" min="1" max="4" onclick="CalcularMontoNocheDetalle()" />
                             </div>
                             <div class="col">
                                 Niños
                                 <br />
-                                <input runat="server" type="number" class="form-control" id="Number1" min="0" max="5" />
+                                <input runat="server" type="number" class="form-control" id="intNinos" min="0" max="3" />
                             </div>
                         </div>
                         <div class="row mb-2">
@@ -104,26 +154,27 @@
                             </div>
                         </div>
                         <div class="row mb-2">
-                            <div class="col"><u>₡20,414 x 5 noches</u></div>
-                            <div class="col text-end">₡102,068</div>
+                            <div class="col"><u>₡ <label runat="server" id="lblMontoNocheDetalle"></label> x 
+                                                  <label runat="server" id="lblCantidadNoches"></label> noches</u></div>
+                            <div class="col text-end">₡ <label runat="server" id="lblMontoHospedaje"></label></div>
                         </div>
                         <div class="row mb-2">
                             <div class="col"><u>Tarifa de limpieza</u></div>
-                            <div class="col text-end">₡9,422</div>
+                            <div class="col text-end">₡9422</div>
                         </div>
                         <div class="row mb-2">
                             <div class="col"><u>Tarifa por servicio</u></div>
-                            <div class="col text-end">₡15,740</div>
+                            <div class="col text-end">₡15740</div>
                         </div>
                         <hr />
                         <div class="row mb-2">
                             <div class="col"><strong>Total</strong> </div>
-                            <div class="col text-end"><strong>₡127,230</strong></div>
+                            <div class="col text-end"><strong>₡ <label runat="server" id="lblMontoHospedajeFinal"></label></strong></div>
                         </div>
                         <hr />
                         <div class="row mb-2">
                             <div class="col mb-2">
-                                <asp:Button class="btn-primary" ID="btnReservar" runat="server" Text="Reserva" Style="width: 100%; height: 40px; border-radius: 5px 5px 5px 5px" />
+                                <button runat="server" id="btnGuardarReservacion" class="btn btn-primary" onserverclick="btnGuardarReservacion_Click">Reservar</button>
                             </div>
                         </div>
                     </div>

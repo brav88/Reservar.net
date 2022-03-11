@@ -44,9 +44,16 @@
                     <li class="nav-item">
                         <a class="nav-link">Contacténos</a>
                     </li>
+                    <li class="nav-item" id="CerrarSesion" runat="server" hidden="hidden">
+                        <a class="nav-link" runat="server" onserverclick="CerrarSesion_Click">Cerrar sesión</a>
+                    </li>
                 </ul>
             </div>
         </nav>
+
+        <div id="divAlert" hidden="hidden" role="alert" runat="server">
+            <label id="lblAlert" runat="server"></label>
+        </div>
 
         <div class="container-fluid ml-3" style="margin-top: 1%">
             <div class="row">
@@ -57,7 +64,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("Nombre") %></h5>
                                 <p class="card-text"><%# Eval("Descripcion") %></p>
-                                <strong class="card-text">$<%# Eval("Precio") %> / p</strong>
+                                <strong class="card-text">₡<%# Eval("Precio") %> / p</strong>
                                 <a style="float: right" href="Reservar.aspx?codigo=<%# Eval("Codigo") %>" class="btn btn-primary">Reservar</a>
                             </div>
                         </div>
@@ -66,7 +73,7 @@
             </div>
         </div>
 
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasScrollingLabel">
             <div class="offcanvas-header primary-color">
                 <h5 id="offcanvasRightLabel" style="color: white">Bienvenido a Reservar.net</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -91,7 +98,9 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" style="width: 100px; margin-top: -65px" alt="User" class="img-fluid img-thumbnail rounded-circle border-0 mb-3" />
-                            <h5 class="card-title">Braulio Sandi</h5>
+                            <h5 class="card-title">
+                                <label id="lblName" runat="server"></label>
+                            </h5>
                             <p class="text-secondary mb-1">Senior Software Engineer</p>
                             <p class="text-muted font-size-sm">Ciudad Colón, Mora</p>
                         </div>
@@ -99,9 +108,6 @@
                 </div>
             </div>
         </div>
-        <div id="message">
-        </div>       
-        <script src="../js/app.js"></script>
     </form>
 </body>
 </html>

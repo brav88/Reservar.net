@@ -13,6 +13,11 @@ namespace Reservar.net.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((Usuario)Session["Login"] != null)
+            {
+                LoginActivo();
+            }
+
             Controlador.Destinos controladorDestinos = new Controlador.Destinos();
 
             repDestinos.DataSource = controladorDestinos.ObtenerDestinos();
@@ -31,19 +36,61 @@ namespace Reservar.net.Vistas
 
             if (controladorUsuarios.Login(usuario))
             {
-                //Login valido
-                cardLogin.Attributes.Add("hidden", "hidden");
-                cardUser.Attributes.Remove("hidden");
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showMessage('Login realizado con exito')", true);
+                Session["Login"] = usuario;
+
+                LoginActivo();
             }
             else
             {
-                //login invalido
-                txtEmail.Attributes.Add("class", "form-control is-invalid");
-                txtPassword.Attributes.Add("class", "form-control is-invalid");
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showMessage('Usuario no registrado en el sistema')", true);
+                LoginInactivo();
             }
         }
 
+        protected void CerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["Login"] = null;
+            MostrarAlert("Gratis por su visita");
+            MostrarCardLogin();
+            CerrarSesion.Attributes.Add("hidden", "hidden");
+        }
+
+        public void LoginActivo()
+        {
+            Usuario usuario = (Usuario)Session["Login"];
+
+            OcultarCardLogin();
+            MostrarAlert("Bienvenido " + usuario.Email);
+            lblName.InnerText = usuario.Email;
+            CerrarSesion.Attributes.Remove("hidden");
+        }
+
+        public void MostrarCardLogin()
+        {
+            cardLogin.Attributes.Remove("hidden");
+            cardUser.Attributes.Add("hidden", "hidden");
+        }
+
+        public void OcultarCardLogin()
+        {
+            cardUser.Attributes.Remove("hidden");
+            cardLogin.Attributes.Add("hidden", "hidden");
+        }
+
+        public void LoginInactivo()
+        {
+            //login invalido
+            txtEmail.Attributes.Add("class", "form-control is-invalid");
+            txtPassword.Attributes.Add("class", "form-control is-invalid");
+            divAlert.Attributes.Add("class", "alert alert-danger");
+            divAlert.Attributes.Remove("hidden");
+            lblAlert.InnerText = "Usuario no registrado";
+        }
+
+        public void MostrarAlert(string mensaje)
+        {
+            divAlert.Attributes.Add("class", "alert alert-info");
+            divAlert.Attributes.Remove("hidden");
+            lblAlert.InnerText = mensaje;
+        }
     }
 }

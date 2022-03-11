@@ -51,48 +51,84 @@ namespace Reservar.net.Vistas
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMontoNoche;
 
         /// <summary>
-        /// llegada control.
+        /// dtLlegada control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl llegada;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dtLlegada;
 
         /// <summary>
-        /// salida control.
+        /// dtSalida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl salida;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dtSalida;
 
         /// <summary>
-        /// adultos control.
+        /// intAdultos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl adultos;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl intAdultos;
 
         /// <summary>
-        /// Number1 control.
+        /// intNinos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Number1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl intNinos;
 
         /// <summary>
-        /// btnReservar control.
+        /// lblMontoNocheDetalle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReservar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMontoNocheDetalle;
+
+        /// <summary>
+        /// lblCantidadNoches control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCantidadNoches;
+
+        /// <summary>
+        /// lblMontoHospedaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMontoHospedaje;
+
+        /// <summary>
+        /// lblMontoHospedajeFinal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblMontoHospedajeFinal;
+
+        /// <summary>
+        /// btnGuardarReservacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnGuardarReservacion;
     }
 }
