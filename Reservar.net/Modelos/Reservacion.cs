@@ -7,7 +7,7 @@ namespace Reservar.net.Modelos
 {
     public class Reservacion : Destino
     {
-        public int Id { get; set; }
+        public int CodigoReservacion { get; set; }
         public string Email { get; set; }
         public int Adultos{ get; set; }
         public int Ninos { get; set; }

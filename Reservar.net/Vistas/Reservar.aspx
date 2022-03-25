@@ -98,6 +98,11 @@
                 </ul>
             </div>
         </nav>
+
+        <div id="divAlert" hidden="hidden" role="alert" runat="server">
+            <label id="lblAlert" runat="server"></label>
+        </div>
+
         <div class="container-fluid ml-3" style="margin-top: 1%">
             <div class="row">
                 <asp:Repeater ID="repDestinos" runat="server">

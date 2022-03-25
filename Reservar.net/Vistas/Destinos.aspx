@@ -35,7 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="destinos.aspx">Destinos</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="Reservaciones" runat="server" hidden="hidden">
                         <a class="nav-link" href="reservaciones.aspx">Mis reservaciones</a>
                     </li>
                     <li class="nav-item">

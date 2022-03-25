@@ -114,7 +114,9 @@
     <Content Include="js\popper.js" />
     <Content Include="js\popper.min.js" />
     <Content Include="SQLScripts\Create-Destinos.sql" />
+    <Content Include="SQLScripts\Create-Table-Reservaciones.sql" />
     <Content Include="SQLScripts\Insert-Destinos.sql" />
+    <Content Include="SQLScripts\spGuardarReservacion.sql" />
     <Content Include="SQLScripts\spObtenerDestinos.sql" />
     <Content Include="Vistas\Destinos.aspx" />
     <Content Include="Vistas\Reservar.aspx" />
@@ -122,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\Destinos.cs" />
+    <Compile Include="Controladores\Reservaciones.cs" />
     <Compile Include="Controladores\Usuarios.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Modelos\Destino.cs" />

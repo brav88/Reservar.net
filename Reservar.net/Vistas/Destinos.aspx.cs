@@ -13,6 +13,13 @@ namespace Reservar.net.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string session = Request.QueryString["session"];
+
+            if (session == "false")
+            {
+                LoginInactivo();
+            }
+
             if ((Usuario)Session["Login"] != null)
             {
                 LoginActivo();
@@ -62,6 +69,7 @@ namespace Reservar.net.Vistas
             MostrarAlert("Bienvenido " + usuario.Email);
             lblName.InnerText = usuario.Email;
             CerrarSesion.Attributes.Remove("hidden");
+            Reservaciones.Attributes.Remove("hidden");
         }
 
         public void MostrarCardLogin()
