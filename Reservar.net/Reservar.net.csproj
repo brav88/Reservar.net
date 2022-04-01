@@ -116,9 +116,12 @@
     <Content Include="SQLScripts\Create-Destinos.sql" />
     <Content Include="SQLScripts\Create-Table-Reservaciones.sql" />
     <Content Include="SQLScripts\Insert-Destinos.sql" />
+    <Content Include="SQLScripts\spCancelarReservacion.sql" />
     <Content Include="SQLScripts\spGuardarReservacion.sql" />
     <Content Include="SQLScripts\spObtenerDestinos.sql" />
+    <Content Include="Vistas\CancelarReservacion.aspx" />
     <Content Include="Vistas\Destinos.aspx" />
+    <Content Include="Vistas\Reservaciones.aspx" />
     <Content Include="Vistas\Reservar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -131,12 +134,26 @@
     <Compile Include="Modelos\Reservacion.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vistas\CancelarReservacion.aspx.cs">
+      <DependentUpon>CancelarReservacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\CancelarReservacion.aspx.designer.cs">
+      <DependentUpon>CancelarReservacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Destinos.aspx.cs">
       <DependentUpon>Destinos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vistas\Destinos.aspx.designer.cs">
       <DependentUpon>Destinos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Reservaciones.aspx.cs">
+      <DependentUpon>Reservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Reservaciones.aspx.designer.cs">
+      <DependentUpon>Reservaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Reservar.aspx.cs">
       <DependentUpon>Reservar.aspx</DependentUpon>

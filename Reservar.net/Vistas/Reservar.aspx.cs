@@ -52,14 +52,16 @@ namespace Reservar.net.Vistas
                 Int16 codigoDestino = Convert.ToInt16(Request.QueryString["codigo"]);
                 Usuario usuario = (Usuario)Session["Login"];
 
+                //TODO: re-calcular montos
+
                 Reservacion reservacion = new Reservacion()
                 {
                     Codigo = codigoDestino,
                     Email = usuario.Email,
                     Adultos = Convert.ToInt16(intAdultos.Value),
                     Ninos = Convert.ToInt16(intNinos.Value),
-                    FechaLlegada = Convert.ToDateTime(dtLlegada.Value),
-                    FechaSalida = Convert.ToDateTime(dtSalida.Value),
+                    FechaLlegada = Convert.ToDateTime(dtLlegada.Value).ToShortDateString(),
+                    FechaSalida = Convert.ToDateTime(dtSalida.Value).ToShortDateString(),
                     CantidadNoches = Convert.ToInt16(lblCantidadNoches.InnerText),
                     MontoHospedajeDetalle = Convert.ToInt32(lblMontoNocheDetalle.InnerText),
                     MontoHospedaje = Convert.ToInt32(lblMontoHospedaje.InnerText),

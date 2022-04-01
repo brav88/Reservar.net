@@ -60,11 +60,12 @@
                 <asp:Repeater ID="repDestinos" runat="server">
                     <ItemTemplate>
                         <div class="card" style="width: 18rem; margin-left: 2%; margin-top: 1%">
-                            <img src="<%# Eval("Foto") %>" class="card-img-top" />
+                            <img src="<%# Eval("Foto") %>" class="card-img-top" style="width:265px;height:230px" />
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("Nombre") %></h5>
                                 <p class="card-text"><%# Eval("Descripcion") %></p>
                                 <strong class="card-text">₡<%# Eval("Precio") %> / p</strong>
+                                <hr />
                                 <a style="float: right" href="Reservar.aspx?codigo=<%# Eval("Codigo") %>" class="btn btn-primary">Reservar</a>
                             </div>
                         </div>

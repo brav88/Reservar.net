@@ -11,8 +11,8 @@ namespace Reservar.net.Modelos
         public string Email { get; set; }
         public int Adultos{ get; set; }
         public int Ninos { get; set; }
-        public DateTime FechaLlegada { get; set; }
-        public DateTime FechaSalida { get; set; }
+        public string FechaLlegada { get; set; }
+        public string FechaSalida { get; set; }
         public int CantidadNoches { get; set; }
         public int MontoHospedajeDetalle { get; set; }
         public int MontoHospedaje { get; set; }
