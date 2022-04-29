@@ -13,22 +13,25 @@ namespace Reservar.net.Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string session = Request.QueryString["session"];
-
-            if (session == "false")
+            if (!IsPostBack)
             {
-                LoginInactivo();
+                string session = Request.QueryString["session"];
+
+                if (session == "false")
+                {
+                    LoginInactivo();
+                }
+
+                if ((Usuario)Session["Login"] != null)
+                {
+                    LoginActivo();
+                }
+
+                Controlador.Destinos controladorDestinos = new Controlador.Destinos();
+
+                repDestinos.DataSource = controladorDestinos.ObtenerDestinos("%%");
+                repDestinos.DataBind();
             }
-
-            if ((Usuario)Session["Login"] != null)
-            {
-                LoginActivo();
-            }
-
-            Controlador.Destinos controladorDestinos = new Controlador.Destinos();
-
-            repDestinos.DataSource = controladorDestinos.ObtenerDestinos();
-            repDestinos.DataBind();
         }
 
         protected void Login_Click(object sender, EventArgs e)
@@ -99,6 +102,13 @@ namespace Reservar.net.Vistas
             divAlert.Attributes.Add("class", "alert alert-info");
             divAlert.Attributes.Remove("hidden");
             lblAlert.InnerText = mensaje;
+        }
+
+        protected void txtBuscar_ServerChange(object sender, EventArgs e)
+        {            
+            Controlador.Destinos controladorDestinos = new Controlador.Destinos();
+            repDestinos.DataSource = controladorDestinos.ObtenerDestinos("%" + txtBuscar.Value + "%");
+            repDestinos.DataBind();            
         }
     }
 }

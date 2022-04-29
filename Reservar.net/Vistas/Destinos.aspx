@@ -57,10 +57,14 @@
 
         <div class="container-fluid ml-3" style="margin-top: 1%">
             <div class="row">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Buscar</span>
+                    <input id="txtBuscar" runat="server" type="text" class="form-control" aria-describedby="basic-addon1" onserverchange="txtBuscar_ServerChange"  />
+                </div>
                 <asp:Repeater ID="repDestinos" runat="server">
                     <ItemTemplate>
                         <div class="card" style="width: 18rem; margin-left: 2%; margin-top: 1%">
-                            <img src="<%# Eval("Foto") %>" class="card-img-top" style="width:265px;height:230px" />
+                            <img src="<%# Eval("Foto") %>" class="card-img-top" style="width: 265px; height: 230px" />
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("Nombre") %></h5>
                                 <p class="card-text"><%# Eval("Descripcion") %></p>

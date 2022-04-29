@@ -35,7 +35,7 @@
             const intAdultos = document.querySelector("#intAdultos");
             const montoNoche = parseInt(lblMontoNoche.innerText);
 
-            if (intAdultos.value > 2) {                
+            if (intAdultos.value > 2) {
                 var impuesto = (montoNoche * 0.13);
                 lblMontoNocheDetalle.innerText = montoNoche + impuesto;
             }

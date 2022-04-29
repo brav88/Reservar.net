@@ -43,10 +43,10 @@
         </nav>
 
         <div class="container-fluid ml-3" style="margin-top: 1%">
-            <div class="row">                
+            <div class="row">
                 <asp:Repeater ID="repReservaciones" runat="server">
                     <ItemTemplate>
-                        <div class="card" style="width: 18rem; margin-left: 2%; margin-top: 1%">                                
+                        <div class="card" style="width: 18rem; margin-left: 2%; margin-top: 1%">
                             <img src="<%# Eval("Foto") %>" class="card-img-top" style="width: 265px; height: 230px" />
                             <div class="card-body">
                                 <h5 class="card-title"><%# Eval("nombre") %></h5>
@@ -57,30 +57,48 @@
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col">
-                                        Entrada: <p class="card-text"><%# Eval("fechaLlegada") %></p>
+                                        Entrada:
+                                        <p class="card-text"><%# Eval("fechaLlegada") %></p>
                                     </div>
                                     <div class="col">
-                                        Salida: <p class="card-text"><%# Eval("fechaSalida") %></p>
+                                        Salida:
+                                        <p class="card-text"><%# Eval("fechaSalida") %></p>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col">
-                                        Adultos: <p class="card-text"><%# Eval("adultos") %></p>
+                                        Adultos:
+                                        <p class="card-text"><%# Eval("adultos") %></p>
                                     </div>
                                     <div class="col">
-                                        Niños: <p class="card-text"><%# Eval("ninos") %></p>
+                                        Niños:
+                                        <p class="card-text"><%# Eval("ninos") %></p>
                                     </div>
                                 </div>
                                 Coste: <strong class="card-text">₡<%# Eval("montoHospedajeFinal") %></strong>
                                 <hr />
-
-                                <a href="CancelarReservacion.aspx?codigoReservacion=<%# Eval("codigoReservacion") %>">Cancelar</a>
+                                <div class="row mb-2">
+                                    <button type="button" class="btn btn-success" onclick="redirect('Reservar.aspx?codigo=<%# Eval("codigo") %>&codigoReservacion=<%# Eval("codigoReservacion") %>')">Editar</button>
+                                    <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Cancelar</button>
+                                    <div class="collapse" id="collapseExample">
+                                        <div class="card card-body" style="width: 250px;">
+                                            ¿Esta seguro que desea cancelar la reservación?
+                                            <br />
+                                            <button type="button" class="btn btn-danger" onclick="redirect('CancelarReservacion.aspx?codigoReservacion=<%# Eval("codigoReservacion") %>')">Si Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
         </div>
+        <script type="text/javascript">
+            function redirect(url) {
+                window.location.href = url, true;
+            }
+        </script>
     </form>
 </body>
 </html>

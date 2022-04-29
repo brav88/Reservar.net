@@ -69,6 +69,15 @@ namespace Reservar.net.Vistas
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAlert;
 
         /// <summary>
+        /// txtBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBuscar;
+
+        /// <summary>
         /// repDestinos control.
         /// </summary>
         /// <remarks>
