@@ -12,5 +12,6 @@ namespace Reservar.net.Modelos
         public string Descripcion { get; set; }
         public string Foto { get; set; }
         public double Precio { get; set; }
+        public string Estado { get; set; }
     }
 }
